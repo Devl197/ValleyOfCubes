@@ -1,10 +1,10 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour, MainControls.IUIActions
 {
     public GameObject pillarPrefab;
     public GameObject pillarHolder;
@@ -22,6 +22,13 @@ public class GameManager : MonoBehaviour
     Vector3 spawnPosition;
     bool gameOver;
     int currentLevel = 1;
+    private MainControls inputActions;
+    
+    void Awake()
+    {
+        inputActions = new MainControls();
+        inputActions.UI.SetCallbacks(this);
+    }
 
     // Use this for initialization
     void Start()
@@ -29,14 +36,26 @@ public class GameManager : MonoBehaviour
         currentLevel = PlayerPrefs.GetInt("currentLevel", 1);
         levelText.GetComponent<Text>().text = "Level: " + currentLevel;
         spawnPosition = transform.position;
+
         minDistance += currentLevel;
         maxDistance += currentLevel;
         minHeight += currentLevel;
         maxHeight += currentLevel;
+        
         pillarsToMake += (currentLevel * 3);
         MakingPillars();
         score = 0;
         gameOver = false;
+    }
+
+    void OnEnable()
+    {
+        inputActions.Enable();
+    }
+
+    void OnDisable()
+    {
+        inputActions.Disable();
     }
 
     void FixedUpdate()
@@ -116,8 +135,9 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Main");
     }
 
-    public void Quit()
+    public void OnQuit(InputAction.CallbackContext context)
     {
+        Debug.Log("HEHEHEHEHE");
         Application.Quit();
     }
 }

@@ -1,0 +1,40 @@
+{
+    "name": "MainControls",
+    "maps": [
+        {
+            "name": "UI",
+            "id": "8945e031-7a92-48d6-b0b2-96ef77cdaed9",
+            "actions": [
+                {
+                    "name": "Quit",
+                    "type": "Value",
+                    "id": "64845f75-d927-4e57-ae48-1eda76ac7e2f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "b2a6f341-a4c2-4f92-b839-4e18fab1c0b5",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Quit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "New control scheme",
+            "bindingGroup": "New control scheme",
+            "devices": []
+        }
+    ]
+}
