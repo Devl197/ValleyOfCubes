@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
         minHeight += currentLevel;
         maxHeight += currentLevel;
         pillarsToMake += (currentLevel * 3);
-        makingPillars();
+        MakingPillars();
         score = 0;
         gameOver = false;
     }
@@ -45,18 +45,18 @@ public class GameManager : MonoBehaviour
         {
             gameOver = true;
             Camera.main.gameObject.GetComponent<CameraBehaviour>().gameOver = true;
-            StartCoroutine(loseGame());
+            StartCoroutine(LoseGame());
         }
     }
 
-    public void scoreUp(int points)
+    public void ScoreUp(int points)
     {
         score += points;
         jumps++;
         scoreText.text = "" + points;
     }
 
-    void makingPillars()
+    void MakingPillars()
     {
         for (int i = 0; i < pillarsToMake; i++)
         {
@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    IEnumerator loseGame()
+    IEnumerator LoseGame()
     {
         cube.GetComponent<CubeBehaviour>().loseGame = true;
         for (int i = 0; i >= 0; i--)
@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
         jumpsText.GetComponent<Text>().text = "Jumps:" + jumps;
     }
 
-    public IEnumerator nextLevelPanel()
+    public IEnumerator NextLevelPanel()
     {
         cube.GetComponent<CubeBehaviour>().loseGame = true;
         for (int i = 0; i >= 0; i--)
@@ -111,12 +111,12 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void restart()
+    public void Restart()
     {
         SceneManager.LoadScene("Main");
     }
 
-    public void quit()
+    public void Quit()
     {
         Application.Quit();
     }

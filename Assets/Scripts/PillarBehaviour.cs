@@ -18,10 +18,10 @@ public class PillarBehaviour : MonoBehaviour
             if (!visited)
             {
                 visited = true;
-                gameManager.scoreUp(score);
+                gameManager.ScoreUp(score);
                 if (isLast)
                 {
-                    StartCoroutine(gameManager.nextLevelPanel());
+                    StartCoroutine(gameManager.NextLevelPanel());
                 }
             }
         }
