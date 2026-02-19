@@ -338,7 +338,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0.19215685, g: 0.97674704, b: 1, a: 1}
   m_Intensity: 681
   m_Range: 10
   m_SpotAngle: 30
@@ -382,13 +382,13 @@ Light:
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 0.5, y: 0.5}
   m_BounceIntensity: 1
-  m_ColorTemperature: 1500
+  m_ColorTemperature: 18098
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
-  m_ShadowAngle: 0
+  m_ShadowAngle: 0.5
 --- !u!4 &170076735
 Transform:
   m_ObjectHideFlags: 0
@@ -838,8 +838,8 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
-  clearColorMode: 1
-  backgroundColorHDR: {r: 0.025, g: 0.07, b: 0.19, a: 0}
+  clearColorMode: 0
+  backgroundColorHDR: {r: 1, g: 1, b: 1, a: 0}
   clearDepth: 1
   volumeLayerMask:
     serializedVersion: 2
@@ -1984,7 +1984,7 @@ GameObject:
   - component: {fileID: 1118520846}
   - component: {fileID: 1118520845}
   m_Layer: 0
-  m_Name: Clouds
+  m_Name: Gradient Sky
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2005,8 +2005,8 @@ MonoBehaviour:
   isGlobal: 1
   priority: 0
   blendDistance: 0
-  weight: 1
-  sharedProfile: {fileID: 11400000, guid: 94bebb84b0cc4e5488ebd84b0548f912, type: 2}
+  weight: 0.306
+  sharedProfile: {fileID: 11400000, guid: 494e7a5693c7b5b43bb758f9377ad107, type: 2}
 --- !u!4 &1118520846
 Transform:
   m_ObjectHideFlags: 0
