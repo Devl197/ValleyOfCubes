@@ -699,7 +699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1932573500}
-  resizeSpeed: 3
+  trackingSpeed: 2
   gameOver: 0
 --- !u!20 &282840813
 Camera:
@@ -727,7 +727,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 100
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 11
   m_Depth: -1
   m_CullingMask:
