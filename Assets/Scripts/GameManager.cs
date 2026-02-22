@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour, MainControls.IUIActions
     bool gameOver;
     int currentLevel = 1;
     private MainControls inputActions;
-    
+
     void Awake()
     {
         inputActions = new MainControls();
@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour, MainControls.IUIActions
         maxDistance += currentLevel;
         minHeight += currentLevel;
         maxHeight += currentLevel;
-        
+
         pillarsToMake += (currentLevel * 3);
         MakingPillars();
         score = 0;
@@ -127,7 +127,7 @@ public class GameManager : MonoBehaviour, MainControls.IUIActions
             PlayerPrefs.SetInt("currentLevel", 1);
             wonGameUI.SetActive(true);
         }
-        
+
     }
 
     public void Restart()
@@ -137,7 +137,6 @@ public class GameManager : MonoBehaviour, MainControls.IUIActions
 
     public void OnQuit(InputAction.CallbackContext context)
     {
-        Debug.Log("HEHEHEHEHE");
         Application.Quit();
     }
 }

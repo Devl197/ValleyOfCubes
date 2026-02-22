@@ -13,7 +13,7 @@ public class CameraBehaviour : MonoBehaviour
         if (target.position.z > transform.position.z - 3f && !gameOver)
         {
             transform.position = new Vector3(transform.position.x,
-            target.position.y + trackingOffset,
+            transform.position.y + trackingOffset,
             target.position.z + 3f);
         }
     }
