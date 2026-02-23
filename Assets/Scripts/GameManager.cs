@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour, MainControls.IUIActions
     public float minDistance = 4f, maxDistance = 6f;
     public float minHeight = -9f, maxHeight = -7f;
     public int score, jumps;
+    public bool Demo;
     Vector3 spawnPosition;
     bool gameOver;
     int currentLevel = 1;
@@ -46,6 +47,21 @@ public class GameManager : MonoBehaviour, MainControls.IUIActions
         MakingPillars();
         score = 0;
         gameOver = false;
+
+        if (Demo)
+        {
+            StartCoroutine(StartDemo());
+        }
+
+    }
+
+    private IEnumerator StartDemo()
+    {
+        yield return new WaitForSeconds(3);
+        var cubeClass = cube.GetComponent<CubeBehaviour>();
+        Vector3 demoPosition = new Vector3(3.0f, -8.9f, -6.4f);
+        cubeClass.MoveTheCube(demoPosition);
+
     }
 
     void OnEnable()

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 public class CubeBehaviour : MonoBehaviour
@@ -24,6 +22,7 @@ public class CubeBehaviour : MonoBehaviour
     {
         if (!loseGame)
         {
+            // When mouse mouse button is pressed plot the trajectory
             if (Input.GetMouseButton(0) && Mathf.Approximately(rb.velocity.x, 0) && Mathf.Approximately(rb.velocity.y, 0))
             {
                 line.positionCount = (int)(time * 10);
@@ -39,11 +38,12 @@ public class CubeBehaviour : MonoBehaviour
                     line.positionCount = 0;
                 }
             }
+            // When mouse button is released move the cube
             if (Input.GetMouseButtonUp(0) && line.positionCount > 0)
             {
                 line.positionCount = 0;
                 Vector3 mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 15));
-                rb.AddForce((transform.position - mousePosition) * jumpForce, ForceMode.Impulse);
+                MoveTheCube(mousePosition);
             }
         }
     }
@@ -52,7 +52,7 @@ public class CubeBehaviour : MonoBehaviour
     {
         Vector3 prev = start;
         for (int i = 0; i < line.positionCount; i++)
-        {   
+        {
             float t = timestep * i;
             if (t > maxTime) break;
             Vector3 pos = PlotTrajectoryAtTime(start, startVelocity, t);
@@ -65,6 +65,11 @@ public class CubeBehaviour : MonoBehaviour
     public Vector3 PlotTrajectoryAtTime(Vector3 start, Vector3 startVelocity, float time)
     {
         return start + startVelocity * time + Physics.gravity * time * time * 0.5f;
+    }
+
+    public void MoveTheCube(Vector3 position)
+    {
+        rb.AddForce((transform.position - position) * jumpForce, ForceMode.Impulse);
     }
 
 }
