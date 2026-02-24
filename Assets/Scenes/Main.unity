@@ -2533,7 +2533,7 @@ MonoBehaviour:
   maxHeight: -6
   score: 0
   jumps: 0
-  Demo: 1
+  Demo: 0
 --- !u!1 &1473762485
 GameObject:
   m_ObjectHideFlags: 0
